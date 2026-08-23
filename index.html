@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Explorer</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<!-- ================= NAVBAR ================= -->
+<header>
+<nav class="navbar">
+<div class="logo">
+<i class="fa-solid fa-earth-asia"></i>
+Travel Explorer
+</div>
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#places">Places</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#reviews">Reviews</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<div class="icons">
+<div id="dateTime"></div>
+<i class="fa-solid fa-moon" id="theme-btn"></i>
+<i class="fa-solid fa-bars" id="menu-btn"></i>
+<button onclick="logout()">Logout</button>
+</div>
+</nav>
+</header>
+<div id="welcomeMessage">
+    👋 Welcome to Travel Explorer! Have a great journey.
+</div>
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+<div class="overlay">
+<h1>Discover Places. Find Your Next Escape.</h1>
+<p>Explore breathtaking destinations, 
+discover unique experiences, and find the places that are worth your journey.</p>
+
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Search destinations...">
+<button onclick="searchPlace()">
+<i class="fa-solid fa-magnifying-glass"></i>
+Search
+</button>
+</div>
+
+
+</div>
+</section>
+<!-- ABOUT TRAVEL EXPLORER -->
+
+<section class="about-section" id="about">
+
+    <div class="about-content">
+
+        <span class="section-label">ABOUT TRAVEL EXPLORER</span>
+
+        <h2>Discover More Than Just a Destination 🌍</h2>
+
+        <p>
+            Travel Explorer is a destination discovery website designed to
+            help travelers explore the world and find places that match
+            their interests. Discover beautiful destinations, explore
+            popular attractions and activities, check typical weather
+            conditions, and locate places on the map — all in one place.
+        </p>
+
+        <div class="about-highlights">
+
+            <div class="about-box">
+                <span>🌎</span>
+                <h3>Discover</h3>
+                <p>Explore destinations from around the world.</p>
+            </div>
+
+            <div class="about-box">
+                <span>✨</span>
+                <h3>Explore</h3>
+                <p>Find attractions, activities and experiences.</p>
+            </div>
+
+            <div class="about-box">
+                <span>🌦️</span>
+                <h3>Plan</h3>
+                <p>Check climate patterns and important locations.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= POPULAR DESTINATIONS ================= -->
+<section class="places" id="places">
+<h2 class="section-title">Popular Destinations</h2>
+<div class="cards">
+
+
+<!-- CARD 2 -->
+
+<div class="card" data-name="maldives">
+<img src="images/place2.jpg">
+<div class="content">
+<h3>Maldives</h3>
+<p>Luxury water villas and white sandy beaches.</p>
+<button onclick="goToMaldives()">Explore</button>
+<span class="heart" onclick="toggleHeart(this)">🤍</span>
+<div class="rating">
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+</div>
+</div>
+</div>
+<!-- CARD 3 -->
+<div class="card" data-name="goa">
+<img src="images/place3.jpg">
+<div class="content">
+<h3>Goa</h3>
+<p>India's most famous beach destination.</p>
+<button onclick="goToGoa()">Explore</button>
+<span class="heart" onclick="toggleHeart(this)">🤍</span>
+<div class="rating">
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+</div>
+</div>
+</div>
+<!-- CARD 4 -->
+<div class="card" data-name="santorini">
+<img src="images/place4.jpg">
+<div class="content">
+<h3>Santorini</h3>
+<p>Blue domes and breathtaking sea views.</p>
+<button onclick="goToSantorini()">Explore</button>
+<span class="heart" onclick="toggleHeart(this)">🤍</span>
+<div class="rating">
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+</div>
+</div>
+</div>
+<!-- CARD 5 -->
+<div class="card" data-name="bora bora">
+<img src="images/place5.jpg">
+<div class="content">
+<h3>Bora Bora</h3>
+<p>Turquoise lagoons and tropical luxury.</p>
+<button onclick="goToBora()">Explore</button>
+<span class="heart" onclick="toggleHeart(this)">🤍</span>
+<div class="rating">
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+</div>
+</div>
+</div>
+<!-- CARD 6 -->
+<div class="card" data-name="phuket">
+<img src="images/place6.jpg">
+<div class="content">
+<h3>Phuket</h3>
+<p>Thailand's paradise island.</p>
+<button onclick="goToPhuket()">Explore</button>
+<span class="heart" onclick="toggleHeart(this)">🤍</span>
+<div class="rating">
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+</div>
+</div>
+</div>
+<!-- CARD 7 -->
+<div class="card" data-name="seychelles">
+<img src="images/place7.jpg">
+<div class="content">
+<h3>Seychelles</h3>
+<p>Nature, beaches and giant granite rocks.</p>
+<button onclick="goToSeychelles()">Explore</button>
+<span class="heart" onclick="toggleHeart(this)">🤍</span>
+<div class="rating">
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+</div>
+</div>
+</div>
+<!-- CARD 8 -->
+<div class="card" data-name="fiji">
+<img src="images/place8.jpg">
+<div class="content">
+<h3>Fiji</h3>
+<p>Perfect coral reefs and island adventures.</p>
+<button onclick="goToFiji()">Explore</button>
+<span class="heart" onclick="toggleHeart(this)">🤍</span>
+<div class="rating">
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+</div>
+</div>
+</div>
+<!-- CARD 9 -->
+<div class="card" data-name="hawaii">
+<img src="images/place9.jpg">
+<div class="content">
+<h3>Hawaii</h3>
+<p>Volcanoes, beaches and waterfalls.</p>
+<button onclick="goToHawaii()">Explore</button>
+<span class="heart" onclick="toggleHeart(this)">🤍</span>
+<div class="rating">
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+</div>
+</div>
+</div>
+<!-- CARD 10-->
+<div class="card" data-name="bali">
+<img src="images/place10.jpg" alt="Bali">
+<div class="content">
+<h3>Bali</h3>
+<p>Crystal clear water, surfing and beautiful sunsets.</p>
+<button onclick="goToBali()">Explore</button>
+<span class="heart" onclick="toggleHeart(this)">🤍</span>
+<div class="rating">
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+    <span onclick="rate(this)">☆</span>
+</div>
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery" id="gallery">
+
+    <h2 class="section-title">Photo Gallery</h2>
+
+    <div class="gallery-slider">
+
+        <button class="gallery-arrow gallery-prev" onclick="moveGallery(-1)">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="gallery-track">
+
+            <img src="images/gallery1.jpg" class="gallery-slide" alt="Travel Image 1">
+
+            <img src="images/gallery2.jpg" class="gallery-slide" alt="Travel Image 2">
+
+            <img src="images/gallery3.jpg" class="gallery-slide" alt="Travel Image 3">
+
+            <img src="images/gallery4.jpg" class="gallery-slide" alt="Travel Image 4">
+
+            <img src="images/gallery5.jpg" class="gallery-slide" alt="Travel Image 5">
+
+            <img src="images/gallery6.jpg" class="gallery-slide" alt="Travel Image 6">
+
+            <img src="images/gallery7.jpg" class="gallery-slide" alt="Travel Image 7">
+
+            <img src="images/gallery8.jpg" class="gallery-slide" alt="Travel Image 8">
+
+        </div>
+
+        <button class="gallery-arrow gallery-next" onclick="moveGallery(1)">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+    </div>
+
+</section>
+<!--vidio---->
+
+<section class="video-section">
+<h2 class="section-title">Travel Video</h2>
+<video align="center" controls width="500" height="300" >
+     <source align="center" src="travel.mp4" type="video/mp4">
+</video>
+</section>
+
+<!-- ======= COUNTERS ========= -->
+<section class="counter">
+<div>
+<h1>150+</h1>
+<p>Destinations</p>
+</div>
+<div>
+<h1>25K+</h1>
+<p>Travelers</p>
+</div>
+<div>
+<h1>300+</h1>
+<p>Tours</p>
+</div>
+<div>
+<h1>4.9</h1>
+<p>Rating</p>
+</div>
+</section>
+<!------==================Calculator===================------>
+
+<section id="budget-calculator">
+
+    <h2 class="section-title">Estimated Travel Budget</h2>
+
+    <div class="budget-box">
+
+        <select id="destination">
+            <option value="">Select Destination</option>
+            <option value="bali">Bali</option>
+            <option value="maldives">Maldives</option>
+            <option value="goa">Goa</option>
+            <option value="santorini">Santorini</option>
+            <option value="boraBora">Bora Bora</option>
+            <option value="phuket">Phuket</option>
+            <option value="seychelles">Seychelles</option>
+            <option value="fiji">Fiji</option>
+            <option value="hawaii">Hawaii</option>
+        </select>
+
+        <input
+            type="number"
+            id="travelers"
+            placeholder="Number of Travelers"
+            min="1"
+        >
+
+        <input
+            type="number"
+            id="days"
+            placeholder="Number of Days"
+            min="1"
+        >
+
+        <select id="preference">
+            <option value="">Select Your Travel Preference</option>
+            <option value="low">Low Budget</option>
+            <option value="medium">Medium Budget</option>
+            <option value="high">High Budget</option>
+        </select>
+
+        <button onclick="calculateBudget()">
+            Calculate Estimated Budget
+        </button>
+
+        <h3 id="budgetResult"></h3>
+
+        <p class="budget-note">
+            *This is an approximate estimate. Actual travel costs may vary.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section id="reviews">
+<h2 class="section-title">
+Traveler Reviews
+</h2>
+<div class="review-box">
+<div class="review">
+<p>Loved every destination.⭐⭐⭐⭐⭐</p>
+<h4>- James</h4>
+</div>
+<div class="review">
+<p>Best travel website ever.⭐⭐⭐⭐⭐</p>
+<h4>- Emma</h4>
+</div>
+</div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+<h2 class="section-title">
+Contact Us
+</h2>
+<form>
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Email">
+<textarea placeholder="Message"></textarea>
+<button>
+Send Message
+</button>
+</form>
+</section>
+<!-- ================= FOOTER ================= -->
+<footer>
+<p>
+© 2026 Travel Explorer | Designed & Developed by Yashika SV
+</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
