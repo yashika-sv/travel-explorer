@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bali - Travel Explorer</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================
+   RESET
+===================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* =====================================
+   BACKGROUND
+===================================== */
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-3;
+    background-image:url("images/place10.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    filter:blur(4px);
+    transform:scale(1.03);
+}
+
+.background-overlay{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    background:rgba(0,0,0,0.45);
+}
+
+/* =====================================
+   PAGE
+===================================== */
+
+.page{
+    width:100%;
+    min-height:100vh;
+    padding:45px 20px 70px;
+}
+
+/* =====================================
+   HERO
+===================================== */
+
+.hero{
+    max-width:1100px;
+    min-height:500px;
+    margin:0 auto 35px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:60px 30px;
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.05),
+            rgba(0,0,0,0.25)
+        );
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:30px;
+    backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(5px);
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.25);
+}
+
+.hero-label{
+    font-size:14px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    font-weight:500;
+    margin-bottom:18px;
+    opacity:.9;
+}
+
+.hero h1{
+    font-size:82px;
+    line-height:1;
+    font-weight:700;
+    margin:0;
+    letter-spacing:-2px;
+    text-shadow:
+        0 5px 20px rgba(0,0,0,.6);
+}
+
+.hero h1 span{
+    display:block;
+    font-size:32px;
+    letter-spacing:8px;
+    font-weight:500;
+    margin-top:18px;
+}
+
+.hero-description{
+    max-width:650px;
+    font-size:18px;
+    line-height:1.7;
+    margin:25px 0;
+    opacity:.95;
+}
+
+.explore-btn{
+    display:inline-block;
+    padding:14px 32px;
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.45);
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-size:15px;
+    font-weight:500;
+    backdrop-filter:blur(8px);
+    transition:.3s;
+}
+
+.explore-btn:hover{
+    background:white;
+    color:#0077b6;
+    transform:translateY(-4px);
+}
+
+/* =====================================
+   CONTENT
+===================================== */
+
+.content{
+    max-width:1100px;
+    margin:auto;
+}
+
+/* =====================================
+   GLASS CARDS
+===================================== */
+
+.card{
+    margin-bottom:25px;
+    padding:32px;
+    background:rgba(255,255,255,0.13);
+    border:1px solid rgba(255,255,255,0.25);
+    border-radius:25px;
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.25);
+    transition:.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+    background:rgba(255,255,255,0.17);
+}
+
+.card h2{
+    text-align:center;
+    font-size:28px;
+    margin-bottom:20px;
+    color:white;
+    text-shadow:
+        0 2px 8px rgba(0,0,0,0.4);
+}
+
+.card p{
+    font-size:17px;
+    line-height:1.8;
+}
+
+/* =====================================
+   ACTIVITIES
+===================================== */
+
+.activities{
+    display:grid;
+    grid-template-columns:
+        repeat(4,1fr);
+    gap:18px;
+}
+
+.activity{
+    text-align:center;
+    padding:25px 15px;
+    background:rgba(255,255,255,0.10);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:18px;
+    transition:.3s;
+}
+
+.activity:hover{
+    transform:translateY(-7px);
+    background:rgba(255,255,255,0.20);
+}
+
+.activity-icon{
+    font-size:38px;
+        display:block;
+    margin-bottom:10px;
+}
+
+.activity-name{
+    font-size:16px;
+    font-weight:500;
+}
+
+/* =====================================
+   POPULAR PLACES
+===================================== */
+
+.places{
+    display:grid;
+    grid-template-columns:
+        repeat(2,1fr);
+    gap:15px;
+}
+
+.place{
+    padding:18px;
+    background:rgba(255,255,255,0.10);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:15px;
+    transition:.3s;
+    cursor:pointer;
+    font-weight:500;
+}
+
+.place:hover{
+    background:rgba(255,255,255,0.25);
+    transform:translateY(-5px);
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* =====================================
+   WEATHER
+===================================== */
+
+.weather-plan{
+    margin-bottom:25px;
+    padding:32px;
+    background:rgba(255,255,255,0.13);
+    border:1px solid rgba(255,255,255,0.25);
+    border-radius:25px;
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.25);
+    text-align:center;
+}
+
+.weather-plan h2{
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.weather-plan > p{
+    font-size:16px;
+    line-height:1.7;
+}
+
+#monthSelector{
+    margin-top:18px;
+    padding:13px 20px;
+    border:none;
+    border-radius:12px;
+    font-family:'Poppins',sans-serif;
+    font-size:15px;
+    cursor:pointer;
+    outline:none;
+}
+
+#bestTime{
+    margin-top:20px;
+}
+
+#weatherResult{
+    margin-top:15px;
+}
+
+.weather-source{
+    margin-top:22px !important;
+    font-size:13px !important;
+    opacity:.75;
+}
+
+/* =====================================
+   MAP
+===================================== */
+
+.map-container{
+    overflow:hidden;
+    border-radius:20px;
+    margin-top:10px;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.35);
+}
+
+.map-container iframe{
+    width:100%;
+    height:400px;
+    border:0;
+    display:block;
+}
+
+/* =====================================
+   BACK BUTTON
+===================================== */
+
+.back{
+    display:block;
+    width:max-content;
+    margin:35px auto 0;
+    padding:13px 28px;
+    background:rgba(0,180,216,0.9);
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:500;
+    transition:.3s;
+}
+
+.back:hover{
+    background:#0077b6;
+    transform:translateY(-3px);
+}
+
+/* =====================================
+   PLACE POPUP
+===================================== */
+
+.place-popup{
+    position:fixed;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(0,0,0,0.72);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    z-index:1000;
+    overflow-y:auto;
+}
+
+.place-popup.show{
+    display:flex;
+}
+
+.popup-box{
+    width:100%;
+    max-width:850px;
+    max-height:90vh;
+    overflow-y:auto;
+    position:relative;
+    padding:25px;
+    background:rgba(20,30,35,0.92);
+    border:1px solid rgba(255,255,255,0.25);
+    border-radius:25px;
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.5);
+    animation:popupOpen .3s ease;
+}
+
+@keyframes popupOpen{
+    from{
+        opacity:0;
+        transform:scale(.92) translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+}
+
+.close-popup{
+    position:absolute;
+    right:18px;
+    top:15px;
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:rgba(0,0,0,0.55);
+    color:white;
+    font-size:25px;
+    cursor:pointer;
+    z-index:5;
+    transition:.3s;
+}
+
+.close-popup:hover{
+    background:#e63946;
+    transform:rotate(90deg);
+}
+
+.popup-box h2{
+    text-align:center;
+    font-size:32px;
+    margin:5px 40px 20px;
+}
+
+.popup-image{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    border-radius:18px;
+    display:block;
+    margin-bottom:20px;
+}
+
+.popup-description{
+    font-size:16px;
+    line-height:1.8;
+    margin-bottom:20px;
+    color:rgba(255,255,255,.92);
+}
+
+.popup-location{
+    background:rgba(255,255,255,.08);
+    padding:15px 18px;
+    border-radius:14px;
+    margin-bottom:20px;
+    line-height:1.7;
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media(max-width:800px){
+    .page{
+        padding:30px 15px 50px;
+    }
+
+    .hero{
+        min-height:450px;
+        padding:40px 20px;
+    }
+
+    .hero h1{
+        font-size:60px;
+    }
+
+    .hero h1 span{
+        font-size:26px;
+        letter-spacing:6px;
+    }
+
+    .activities{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+}
+
+@media(max-width:500px){
+    .hero{
+        min-height:430px;
+        padding:40px 20px;
+    }
+
+    .hero-label{
+        font-size:11px;
+        letter-spacing:3px;
+    }
+
+    .hero h1{
+        font-size:52px;
+    }
+
+    .hero h1 span{
+        font-size:22px;
+        letter-spacing:5px;
+    }
+
+    .hero-description{
+        font-size:15px;
+    }
+
+    .card,
+    .weather-plan{
+        padding:22px;
+    }
+
+    .activities{
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .places{
+        grid-template-columns:1fr;
+    }
+
+    .map-container iframe{
+        height:300px;
+    }
+
+    .popup-box{
+        padding:20px;
+    }
+
+    .popup-box h2{
+        font-size:25px;
+    }
+
+    .popup-image{
+        height:230px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================
+     BACKGROUND
+===================================== -->
+
+<div class="background"></div>
+<div class="background-overlay"></div>
+
+<div class="page">
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
+    <section class="hero">
+
+        <div class="hero-label">
+            YOUR NEXT ESCAPE
+        </div>
+
+        <h1>
+            🌴 BALI
+            <span>
+                INDONESIA
+            </span>
+        </h1>
+
+        <p class="hero-description">
+            Discover tropical beaches, ancient temples,
+            lush rice terraces and unforgettable experiences
+            in the Island of the Gods.
+        </p>
+
+        <a href="#about" class="explore-btn">
+            Explore Bali ↓
+        </a>
+
+    </section>
+
+    <div class="content">
+
+        <!-- =====================================
+             ABOUT
+        ====================================== -->
+
+        <section class="card" id="about">
+
+            <h2>
+                🌺 About Bali
+            </h2>
+
+            <p>
+                Bali is one of Indonesia's most famous
+                tourist destinations. It is known for
+                beautiful beaches, ancient temples,
+                waterfalls, green rice terraces and
+                rich cultural traditions.
+
+                Bali offers a combination of nature,
+                culture, relaxation and adventure.
+            </p>
+
+        </section>
+
+        <!-- =====================================
+             ACTIVITIES
+        ====================================== -->
+
+        <section class="card">
+
+            <h2>
+                ✨ Best Activities
+            </h2>
+
+            <div class="activities">
+
+                <div class="activity">
+
+                    <span class="activity-icon">
+                        🏄
+                    </span>
+
+                    <span class="activity-name">
+                        Surfing
+                    </span>
+
+                </div>
+
+                <div class="activity">
+
+                    <span class="activity-icon">
+                        🏝️
+                    </span>
+
+                    <span class="activity-name">
+                        Beach Relaxation
+                    </span>
+
+                </div>
+                <div class="activity">
+    <span class="activity-icon">🌾</span>
+    <span class="activity-name">Rice Terrace Tours</span>
+</div>
+
+<div class="activity">
+    <span class="activity-icon">💦</span>
+    <span class="activity-name">Waterfall Trekking</span>
+</div>
+
+</div>
+</section>
+
+<!-- =====================================
+     POPULAR PLACES
+===================================== -->
+
+<section class="card">
+    <h2>📍 Popular Places in Bali</h2>
+
+    <div class="places">
+        <div class="place" onclick="openPlace('kuta')">
+            🏖️ Kuta Beach
+        </div>
+
+        <div class="place" onclick="openPlace('uluwatu')">
+            🛕 Uluwatu Temple
+        </div>
+
+        <div class="place" onclick="openPlace('tanahlot')">
+            🌅 Tanah Lot Temple
+        </div>
+
+        <div class="place" onclick="openPlace('tegallalang')">
+            🌾 Tegallalang Rice Terrace
+        </div>
+
+        <div class="place" onclick="openPlace('nusapenida')">
+            🏝️ Nusa Penida Island
+        </div>
+    </div>
+</section>
+
+<!-- =====================================
+     WEATHER
+===================================== -->
+
+<section class="weather-plan">
+    <h2>🌦️ Weather & Best Time to Visit</h2>
+
+    <p>
+        Select a month to see the typical
+        climate conditions for this destination.
+    </p>
+
+    <select id="monthSelector">
+        <option value="" selected disabled>Select a month</option>
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+    </select>
+
+    <p id="bestTime"></p>
+    <div id="weatherResult"></div>
+
+    <p class="weather-source">
+        ℹ️ This section shows typical climate
+        patterns, not a live weather forecast.
+    </p>
+</section>
+
+<!-- =====================================
+     MAIN LOCATION
+===================================== -->
+
+<section class="card">
+    <h2>📍 Explore Bali on Map</h2>
+
+    <div class="map-container">
+        <iframe
+            src="https://www.google.com/maps?q=Bali,Indonesia&output=embed"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</section>
+
+<!-- =====================================
+     BACK HOME
+===================================== -->
+
+<a href="index.html" class="back">
+    ⬅ Back to Home
+</a>
+
+</div>
+</div>
+
+<!-- =====================================
+     PLACE POPUP
+===================================== -->
+
+<div class="place-popup" id="placePopup">
+    <div class="popup-box">
+
+        <button class="close-popup" onclick="closePlace()">×</button>
+
+        <h2 id="popupTitle">Kuta Beach</h2>
+
+        <img
+            id="popupImage"
+            class="popup-image"
+            src=""
+            alt="Bali attraction">
+
+        <p id="popupDescription" class="popup-description"></p>
+
+        <div id="popupLocation" class="popup-location"></div>
+
+        <div class="map-container">
+            <iframe
+                id="popupMap"
+                src=""
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+    </div>
+</div>
+
+<!-- =====================================
+     POPUP JAVASCRIPT
+===================================== -->
+
+<script>
+const baliPlaces = {
+    kuta: {
+        title: "🏖️ Kuta Beach",
+        image: "images/kuta-beach.jpg",
+        description:
+        "Kuta Beach is a well-known beach in southern Bali, popular for its sandy shoreline, sunsets and surfing. It is located near the resort area of Kuta and is one of Bali's long-established tourist areas.",
+        location:
+        "📍 Kuta, Badung Regency, Bali, Indonesia",
+        map:
+        "https://www.google.com/maps?q=Kuta+Beach,Bali&output=embed"
+    },
+
+    uluwatu: {
+        title: "🛕 Uluwatu Temple",
+        image: "images/uluwatu.jpg",
+        description:
+        "Uluwatu Temple, also known as Pura Luhur Uluwatu, is a Balinese Hindu sea temple located on a cliff on Bali's southwestern coast. The site is known for its dramatic ocean views and traditional Kecak performances.",
+        location:
+        "📍 Pecatu, South Kuta, Badung Regency, Bali, Indonesia",
+        map:
+        "https://www.google.com/maps?q=Uluwatu+Temple,Bali&output=embed"
+    },
+
+    tanahlot: {
+        title: "🌅 Tanah Lot Temple",
+        image: "images/tanah-lot.jpg",
+        description:
+        "Tanah Lot is a famous coastal temple in Bali. The temple stands on an offshore rock formation and is particularly known for its scenic coastal setting and sunset views.",
+        location:
+        "📍 Beraban, Kediri, Tabanan Regency, Bali, Indonesia",
+        map:
+        "https://www.google.com/maps?q=Tanah+Lot,Bali&output=embed"
+    },
+
+    tegallalang: {
+        title: "🌾 Tegallalang Rice Terrace",
+        image: "images/tegallalang.jpg",
+        description:
+        "Tegallalang is known for its terraced rice fields north of Ubud. The landscape is an example of Bali's traditional agricultural environment and is popular for its scenic views.",
+        location:
+        "📍 Tegallalang, Gianyar Regency, Bali, Indonesia",
+        map:
+        "https://www.google.com/maps?q=Tegallalang+Rice+Terrace,Bali&output=embed"
+    },
+
+    nusapenida: {
+        title: "🏝️ Nusa Penida",
+        image: "images/nusa-penida.jpg",
+        description:
+        "Nusa Penida is an island southeast of Bali known for its rugged coastline, beaches, viewpoints and natural scenery. It is a popular destination for visitors exploring the islands around Bali.",
+        location:
+        "📍 Nusa Penida, Klungkung Regency, Bali, Indonesia",
+        map:
+        "https://www.google.com/maps?q=Nusa+Penida,Bali&output=embed"
+    }
+};
+
+/* =====================================
+   OPEN POPUP
+===================================== */
+
+function openPlace(placeName){
+    const place = baliPlaces[placeName];
+
+    if(!place){
+        return;
+    }
+
+    document.getElementById("popupTitle").textContent = place.title;
+    document.getElementById("popupImage").src = place.image;
+    document.getElementById("popupImage").alt = place.title;
+    document.getElementById("popupDescription").textContent = place.description;
+    document.getElementById("popupLocation").textContent = place.location;
+    document.getElementById("popupMap").src = place.map;
+    document.getElementById("placePopup").classList.add("show");
+    document.body.style.overflow="hidden";
+}
+
+/* =====================================
+   CLOSE POPUP
+===================================== */
+
+function closePlace(){
+    document.getElementById("placePopup").classList.remove("show");
+    document.body.style.overflow="auto";
+}
+
+/* =====================================
+   CLOSE WHEN CLICKING OUTSIDE
+===================================== */
+
+document.getElementById("placePopup").addEventListener(
+    "click",
+    function(event){
+        if(event.target === this){
+            closePlace();
+        }
+    }
+);
+
+document.addEventListener(
+    "keydown",
+    function(event){
+        if(event.key === "Escape"){
+            closePlace();
+        }
+    }
+);
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
