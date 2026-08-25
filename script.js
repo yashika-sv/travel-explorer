@@ -2,25 +2,6 @@ let currentIndex = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    // DARK MODE
-    const themeBtn = document.getElementById("theme-btn");
-
-    if (themeBtn) {
-        themeBtn.addEventListener("click", function () {
-            document.body.classList.toggle("dark");
-
-            if (themeBtn.classList.contains("fa-moon")) {
-                themeBtn.classList.remove("fa-moon");
-                themeBtn.classList.add("fa-sun");
-            } else {
-                themeBtn.classList.remove("fa-sun");
-                themeBtn.classList.add("fa-moon");
-            }
-        });
-    }
-
-
-
     // CONTACT FORM
     const form = document.querySelector("form");
 
@@ -703,3 +684,5 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 });
+
+
