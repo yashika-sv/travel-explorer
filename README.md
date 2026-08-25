@@ -312,12 +312,6 @@ The popular destinations section allows users to discover and explore the featur
 Users can select a month to view the typical climate conditions and understand the best time to visit each destination.
 
 > **Note:** The weather section displays typical climate patterns and is not a live weather forecast.
-
-### 🎥 Website Preview
-
-![Travel Explorer Website Preview](screenshots/example-video.png)
-
-A preview of the Travel Explorer website demonstrating its overall interface and user experience.
 ------
 ## 📚 Learning Outcomes
 
