@@ -23,7 +23,6 @@ Travel Explorer brings useful destination information together in one place, all
 * 🗺️ View locations on an interactive map
 * ❤️ Save destinations as favorites
 * 📸 Browse destination images
-* 🌙 Explore the website in dark mode
 * 🔎 Search for destinations easily
 
 The current version contains **9 sample destinations** to demonstrate the concept. The platform can be extended in the future by adding many more destinations, attractions, activities, and travel-related information.
@@ -43,10 +42,6 @@ Users can search for destinations from the homepage and quickly find the places 
 ### ❤️ Favorite Destinations
 
 Users can mark destinations as favorites using the interactive favorite button.
-
-### 🌙 Dark Mode
-
-A dark mode option provides an alternative viewing experience and improves usability in low-light environments.
 
 ### 📸 Interactive Gallery
 
@@ -322,7 +317,6 @@ This project helped in developing practical experience with:
 * JavaScript DOM manipulation
 * Interactive UI components
 * Search functionality
-* Dark mode implementation
 * Dynamic content
 * Maps integration
 * Responsive web design
