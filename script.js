@@ -2,6 +2,16 @@ let currentIndex = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    // MOBILE NAVBAR
+const menuBtn = document.getElementById("menu-btn");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuBtn && navLinks) {
+    menuBtn.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
+    });
+}
+
     // CONTACT FORM
     const form = document.querySelector("form");
 

@@ -62,14 +62,12 @@ nav ul li a:hover{
     color:white;
 }
 
-#theme-btn,
+
+
 #menu-btn{
     color:white;
     cursor:pointer;
     font-size:20px;
-}
-
-#menu-btn{
     display:none;
 }
 
@@ -79,16 +77,6 @@ nav ul li a:hover{
     border-radius:20px;
     cursor:pointer;
 }
-
-
-#theme-btn{
-    color:white;
-    cursor:pointer;
-    font-size:20px;
-}
-
-
-
 
 /* MOBILE NAVBAR */
 
