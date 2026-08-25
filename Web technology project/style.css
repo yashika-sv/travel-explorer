@@ -12,7 +12,7 @@ body{
     line-height:1.6;
 }
 
-/* NAVBAR*/
+/* NAVBAR */
 
 header{
     position:fixed;
@@ -55,12 +55,94 @@ nav ul li a:hover{
     color:#00d4ff;
 }
 
-#theme{
+.icons{
+    display:flex;
+    align-items:center;
+    gap:18px;
     color:white;
-    cursor:pointer;
-    font-size:22px;
 }
 
+#theme-btn,
+#menu-btn{
+    color:white;
+    cursor:pointer;
+    font-size:20px;
+}
+
+#menu-btn{
+    display:none;
+}
+
+.icons button{
+    padding:8px 15px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+
+#theme-btn{
+    color:white;
+    cursor:pointer;
+    font-size:20px;
+}
+
+
+
+
+/* MOBILE NAVBAR */
+
+@media(max-width:768px){
+
+    nav{
+        padding:15px 5%;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    nav ul{
+        display:none;
+        position:absolute;
+        top:65px;
+        left:0;
+        width:100%;
+        flex-direction:column;
+        background:rgba(0,0,0,.9);
+        padding:15px 0;
+    }
+
+    nav ul.active{
+        display:flex;
+    }
+
+    nav ul li{
+        margin:0;
+        text-align:center;
+    }
+
+    nav ul li a{
+        display:block;
+        padding:12px;
+    }
+
+    .icons{
+        gap:12px;
+    }
+
+    #dateTime{
+        display:none;
+    }
+
+    #menu-btn{
+        display:block;
+    }
+
+    .icons button{
+        display:none;
+    }
+}
 /* HERO*/
 
 .hero{
@@ -683,3 +765,47 @@ body.dark button{
     height:280px;
     border:0;
 }
+
+
+/* ================= DARK MODE ================= */
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .navbar {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .nav-links a {
+    color: #ffffff;
+}
+
+body.dark-mode .logo {
+    color: #ffffff;
+}
+
+body.dark-mode .icons i {
+    color: #ffffff;
+}
+
+body.dark-mode section {
+    background-color: #121212;
+}
+
+body.dark-mode .card {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+body.dark-mode .card h3,
+body.dark-mode .card p {
+    color: #ffffff;
+}
+
+body.dark-mode footer {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
