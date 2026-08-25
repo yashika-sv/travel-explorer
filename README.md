@@ -285,10 +285,40 @@ Future versions could allow users to create accounts and save personalized trave
 
 ## 📸 Screenshots
 
-Screenshots of the website can be added here to demonstrate the homepage, destination pages, gallery, dark mode, and other major features.
+Here are some screenshots showcasing the main features and interface of Travel Explorer.
 
----
+### 🏠 Homepage
 
+![Travel Explorer Homepage](screenshots/homepage.png)
+
+The homepage provides an introduction to Travel Explorer with destination cards, navigation, search, and interactive features.
+
+### 📸 Interactive Gallery
+
+![Travel Explorer Gallery](screenshots/gallery.png)
+
+The interactive gallery allows users to browse travel images and explore different destinations visually.
+
+### 🌍 Popular Destinations
+
+![Popular Destinations](screenshots/popular-destination.png)
+
+The popular destinations section allows users to discover and explore the featured destinations available on the platform.
+
+### 🌦️ Weather & Best Time to Visit
+
+![Weather and Best Time to Visit](screenshots/weather.png)
+
+Users can select a month to view the typical climate conditions and understand the best time to visit each destination.
+
+> **Note:** The weather section displays typical climate patterns and is not a live weather forecast.
+
+### 🎥 Website Preview
+
+![Travel Explorer Website Preview](screenshots/example-video.png)
+
+A preview of the Travel Explorer website demonstrating its overall interface and user experience.
+------
 ## 📚 Learning Outcomes
 
 This project helped in developing practical experience with:
